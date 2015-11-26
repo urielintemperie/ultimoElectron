@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <title>To-do List</title>
+
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="vendor/jquery-ui.min.css" />
+        <link rel="stylesheet" href="assets/todo.css" />
+    </head>
+
+    <body class="well">
+        <div id="container">
+
+          <div id="menu" class="menu" data-idlibro="">
+  				<h3 id="infoTitulo">Titulo</h3>
+  				<img id="infoImagen" src="" alt="Imagen" style="width:130px;height:200px;">
+  				<br>
+  				<div class="row">
+  					<div class="col-md-12">
+  				<div id="infoSinopsis" class="sinopsis">
+  					<p id="textoSinopsis">Sinopsis</p>
+  				</div>
+  				</div>
+  				</div>
+  				<div class="row separacion">
+                      <div class="col-md-4">
+                          <div  class="checkbox">
+                                <label><input id="infoPorLeer" type="checkbox" value="" onclick="todo.cambiocheckboxporleer();">Por Leer</label>
+                          </div>
+                      </div>
+                      <div  class="col-md-4">
+                          <div class="checkbox">
+                                <label><input id="infoLeido" type="checkbox" value="" onclick="todo.cambiocheckboxleido();">Leido</label>
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                          <button type="button" class="btn btn-success">
+                              Leer <span class="glyphicon glyphicon-share-alt"></span>
+                          </button>
+                      </div>
+                  </div>
+  				<div id="infoFavorito" onclick="todo.favoritearambas()">
+  					<div class="favyes btn btn-sm btn-danger"><span class="glyphicon glyphicon-heart"></span>  </div>
+  					<div class="favno btn btn-sm btn-default"><span class="glyphicon glyphicon-heart-empty"></span>  </div>
+  				</div>
+
+  			</div>
+
+  			<div class="menu2">
+  				<h3>Filtrar</h3>
+  				<button type="button" class="btn btn-default" align="bottom">
+  					Ver Todos <span class="glyphicon glyphicon-book"></span>
+  				</button>
+
+  				<button type="button" class="btn btn-default btnizq">
+  					Favoritos <span class="glyphicon glyphicon-heart"></span>
+  				</button>
+  				<br>
+  				<button type="button" class="btn btn-default btnizq">
+  					Leidos <span class="glyphicon glyphicon-ok"></span>
+  				</button>
+  				<br>
+  				<button type="button" class="btn btn-default btnizq">
+  					No Leidos <span class="glyphicon glyphicon-remove"></span>
+  				</button>
+
+  				<button type="button" class="btn btn-default btnizq">
+  					Por Leer <span class="glyphicon glyphicon-pushpin"></span>
+  				</button>
+
+
+  			</div>
+
+
+            <button id="nuevoLibro" type="button" class="btn btn-default btnizq btn-circle nuevoLibro" onclick="todo.visibilidad(0);">
+					<span class="glyphicon glyphicon-plus"></span>
+			</button>
+
+
+<div id="cajaInput" class="cajaInput" style="display:none;">
+ 		<form id="todo-form">
+			<h4 class="titulosInput">Titulo:</h4>
+			<input id="entradaTitulo" type="text" class="form-control entradas" >
+			<h4 class="titulosInput">Sinopsis:</h4>
+			<textarea id="entradaSinopsis" rows="1"></textarea>
+			<h4 class="titulosInput">Ubicacion PDF:</h4>
+			<input id="entradaPdf" type="text" class="form-control entradas" />
+			<h4 class="titulosInput">Ubicacion imagen</h4>
+			<input id="entradaImagen" type="text" class="form-control entradas" />
+			<input type="button" class="btn btn-success botonInput" value="Add Task" onclick="todo.add();" />
+			<button type="button" class="btn btn-danger botonInput" onclick="todo.visibilidad(1);">Cancelar</button>
+                </form>
+
+<!--<input type="button" class="btn btn-primary" value="Clear Data" onclick="todo.clear();" />-->
+
+          </div>
+
+
+
+
+
+<body>
+<div id="menu3" class="menu3">
+
+</div>
+
+
+
+<div id="logo" class="marca">
+<img src="assets/tuslibros.png" alt="marcapagina" style=" width:45%;height:8%;">
+</div>
+
+            <div style="clear:both;"></div>
+	          <script type="text/javascript"> window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.min.js');</script>
+            <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="vendor/jquery-ui.min.js"></script>
+            <script type="text/javascript" src="assets/todo.js"></script>
+
+            <script type="text/javascript">
+                $( "#datepicker" ).datepicker();
+                $( "#datepicker" ).datepicker("option", "dateFormat", "dd/mm/yy");
+                $(".task-container").droppable();
+                $(".todo-task").draggable({ revert: "valid", revertDuration:200 });
+                todo.init();
+            </script>
+
+        </div>
+    </body>
+</html>
